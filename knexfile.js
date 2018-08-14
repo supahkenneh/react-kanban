@@ -5,8 +5,8 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
+      database: 'react_kanban',
+      user:     'react_kanban_user',
       password: 'password'
     },
     pool: {
