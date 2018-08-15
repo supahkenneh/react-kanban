@@ -3,13 +3,15 @@ import QueueCard from '../QueueCard';
 
 const Queue = props => {
   return (
-    <ul>
-      {
-        props.cards.map( (card, idx) => {
-          return <QueueCard key={idx} title={card.title} body={card.body} />
-        })
-      }
-    </ul>
+    <div id="queue_container">
+      <ul>
+        {
+          props.cards.map((card, idx) => {
+            return <QueueCard key={idx} title={card.title} body={card.body} />
+          })
+        }
+      </ul>
+    </div>
   );
 };
 

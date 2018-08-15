@@ -4,8 +4,6 @@
   width: 100%;
   background-color: #222;
   height: 55px;
-  padding: 5px;
-  padding-left: 15px;
   color: white;
   display: flex;
   justify-content: flex-start;
@@ -14,4 +12,5 @@
 .App-title {
   font-weight: normal;
   font-size: 1.5em;
+  padding-left: 15px;
 }

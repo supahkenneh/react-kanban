@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import './App.css';
-import Header from '../Header/index';
+import Header from '../Header';
+import SecondaryHeader from '../SecondaryHeader'
 import Queue from '../Queue';
+import Progress from '../Progress';
+import Done from '../Done';
 
 class App extends Component {
   constructor(props) {
@@ -28,9 +31,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <div className="main_header_container">
+          <Header />
+        </div>
+        <div className="secondary_header_container">
+          <SecondaryHeader />
+        </div>
         <div className="main_body">
           <Queue cards={this.state.cards} />
+          <Progress cards={this.state.cards} />
+          <Done cards={this.state.cards} />
         </div>
       </div>
     );
