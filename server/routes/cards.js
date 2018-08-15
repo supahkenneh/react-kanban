@@ -3,7 +3,12 @@ const Card = require('../db/models/Card');
 
 router.route('/')
   .get((req, res) => {
-    res.send('cards here');
+    return Card
+    .fetchAll()
+    .then(cards => {
+      res.json(cards);
+    })
+    .catch(err => console.log(err));
   });
 
 module.exports = router;

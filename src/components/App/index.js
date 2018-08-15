@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './App.css';
 import Header from '../Header';
 import SecondaryHeader from '../SecondaryHeader'
@@ -10,7 +10,6 @@ import Done from '../Done';
 class App extends Component {
   constructor(props) {
     super(props)
-    //cards here
     this.state = {
       cards: [
         { title: 'vacuum', body: 'the rug' },
@@ -20,13 +19,13 @@ class App extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   axios.get('/api/cards')
-  //   .then(cards => {
-  //     this.setState({ cards: cards.data})
-  //   })
-  //   .catch(err => console.log(err));
-  // };
+  componentDidMount() {
+    axios.get('/api/cards')
+    .then(cards => {
+      this.setState({ cards: cards.data})
+    })
+    .catch(err => console.log(err));
+  };
 
   render() {
     return (
