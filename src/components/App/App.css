@@ -6,6 +6,23 @@
   padding-top: 70px
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style-type: none;
+}
+
+p {
+  margin: 0;
+}
+
+.task_card {
+  border: 1px;
+  border-style: solid;
+  height: 100px;
+  width: 300px;
+  padding: 10px;
 }
