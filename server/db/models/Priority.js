@@ -9,4 +9,4 @@ class Priority extends bookshelf.Model {
   };
 };
 
-module.exports = booksehlf.model('Priority', Priority);
+module.exports = bookshelf.model('Priority', Priority);

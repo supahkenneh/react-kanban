@@ -1,6 +1,7 @@
 import React from 'react';
 
 const QueueCard = (props) => {
+  console.log(props);
   return (
     <li>
       <div>{props.title}</div>

@@ -7,7 +7,9 @@ const Queue = props => {
       <ul>
         {
           props.cards.map((card, idx) => {
-            return <QueueCard key={idx} title={card.title} body={card.body} />
+            if (card.status === 'queue') {
+              return <QueueCard key={idx} title={card.title} body={card.body} />
+            }
           })
         }
       </ul>

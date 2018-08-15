@@ -12,17 +12,18 @@ class App extends Component {
     super(props)
     this.state = {
       cards: [
-        { title: 'vacuum', body: 'the rug' },
-        { title: 'eat', body: 'dinner' },
-        { title: 'return', body: 'underwear' }
+        // { title: 'vacuum', body: 'the rug' },
+        // { title: 'eat', body: 'dinner' },
+        // { title: 'return', body: 'underwear' }
       ]
     }
   }
 
   componentDidMount() {
-    axios.get('/api/cards')
+    console.log('mount');
+    axios.get('/api')
     .then(cards => {
-      this.setState({ cards: cards.data})
+      this.setState({ cards: cards.data })
     })
     .catch(err => console.log(err));
   };

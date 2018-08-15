@@ -9,4 +9,4 @@ class Status extends bookshelf.Model {
   };
 };
 
-module.exports = booksehlf.model('Status', Status);
+module.exports = bookshelf.model('Status', Status);

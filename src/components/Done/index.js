@@ -8,7 +8,9 @@ const Done = props => {
       <ul id="done_list">
         {
           props.cards.map((card, idx) => {
-            return <DoneCard key={idx} title={card.title} body={card.body} />
+            if(card.status === 'done') {
+              return <DoneCard key={idx} title={card.title} body={card.body} />
+            }
           })
         }
       </ul>
