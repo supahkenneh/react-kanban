@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import Header from '../Header/index';
+import QueueCards from '../QueueCards';
 
 class App extends Component {
   constructor(props) {
@@ -24,9 +25,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <p className="App-intro">
-        <h4>{this.state.greeting}</h4>
-        </p>
+        <div className="main_body">
+        {/* 3 columns here */}
+        <QueueCards greeting={this.state.greeting}/>
+        
+        </div>
       </div>
     );
   }
