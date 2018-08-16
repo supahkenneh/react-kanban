@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions';
@@ -16,17 +15,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api')
-      .then(cards => {
-        this.props.loadCards(cards.data)
-      })
-      .catch(err => console.log(err));
+    this.props.loadCards();
   };
-
-  // addNewCard(e) {
-  //   axios.post('/api')
-  // }
-
 
   render() {
     return (

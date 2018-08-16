@@ -23,4 +23,30 @@ router.get('/', (req, res) => {
     .catch(err => console.log(err));
 })
 
+router.post('/', (req, res) => {
+  console.log(req.body);
+  // const title = req.body.title.trim();
+  // const body = req.body.body.trim();
+  // const priority = req.body.priority;
+  // const createdBy = req.body.created.trim();
+  // const assign = req.body.assign.trim()
+  // const status = req.body.status
+
+  // const card = {
+  //   title,
+  //   body,
+  //   priority,
+  //   status,
+  //   createdBy,
+  //   assign,
+  // }
+
+  // return new Card(card)
+  //   .save()
+  //   .then(newCard => {
+  //     return res.json(newCard)
+  //   })
+  //   .catch(err => console.log(err));
+});
+
 module.exports = router;

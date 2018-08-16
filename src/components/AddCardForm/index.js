@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewCardButton from './addbutton';
+import { addCard } from '../../actions';
 
 class newCardForm extends Component {
   constructor(props) {
@@ -16,8 +17,8 @@ class newCardForm extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  //records data from input fields
   handleInputChange(event) {
-    console.log('event ', event.target);
     switch (event.target.id) {
       case 'title':
         this.setState({ titleInput: event.target.value })
@@ -37,6 +38,18 @@ class newCardForm extends Component {
       default:
         break;
     }
+  }
+
+  //actually adds the card into system
+  addCard(e) {
+    const data = {};
+    console.log('current state', this)
+    data.title = this.state.titleInput;
+    data.body = this.state.bodyInput;
+    data.priority = this.state.priorityInput;
+    data.created = this.state.createInput;
+    data.assign = this.state.assignedInput;
+    data.status = 'queue'
   }
 
   render() {
@@ -83,9 +96,17 @@ class newCardForm extends Component {
           value={this.assignedInput}
           onChange={this.handleInputChange}
         />
-        <NewCardButton />
+        <NewCardButton label="Add Card" clickHandler={this.addCard}/>
       </div>
     )
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addCard: card => {
+      dispatch(addCard(card));
+    }
   }
 }
 

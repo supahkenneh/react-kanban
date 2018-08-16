@@ -1,9 +1,8 @@
 import React from 'react';
 
 const NewCardButton = props => {
-  console.log(props);
   return (
-    <button>Add Task</button>
+    <button onClick={props.clickHandler}>Add Task</button>
   )
 }
 
