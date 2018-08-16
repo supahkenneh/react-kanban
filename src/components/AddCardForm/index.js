@@ -43,7 +43,6 @@ class newCardForm extends Component {
   //actually adds the card into system
   addCard(e) {
     const data = {};
-    console.log('current state', this)
     data.title = this.state.titleInput;
     data.body = this.state.bodyInput;
     data.priority = this.state.priorityInput;
