@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TaskCard = ({ title, body, priority, created, assigned }) => {
-  // console.log('taskCard ', props)
   return (
     <div className="card">
       <div>{title}</div>

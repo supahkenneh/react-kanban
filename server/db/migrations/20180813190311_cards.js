@@ -4,8 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('title', 255).notNullable();
     table.string('body', 1024).notNullable();
-    table.integer('priority_id').notNullable().references('priorities.id');
-    table.integer('status_id').notNullable().references('statuses.id');
+    table.integer('priority_id').notNullable().references('priorities.rank');
+    table.integer('status_id').notNullable().references('statuses.rank');
     table.integer('created_by').notNullable().references('users.id');
     table.integer('assigned_to').references('users.id');
     table.timestamps(true, true);
