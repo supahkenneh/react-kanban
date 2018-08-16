@@ -6,7 +6,7 @@ import { loadCards } from '../../actions';
 
 import Header from '../Header';
 import Body from '../Body';
-
+import AddForm from '../AddCardForm';
 class App extends Component {
   constructor(props) {
     super(props)
@@ -33,6 +33,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Body cards={this.props.cards} />
+        <AddForm />
       </div>
     );
   }

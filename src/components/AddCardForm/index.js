@@ -1,4 +1,5 @@
 import React from 'react';
+import NewCardButton from './addbutton';
 
 const newCardForm = props => {
   const {
@@ -26,12 +27,11 @@ const newCardForm = props => {
         value={bodyInput}
       />
       <label htmlFor="priority">Priority: </label>
-      <input
-        type="text"
-        name="priority"
-        id="priority"
-        value={priorityInput}
-      />
+      <select name="priority" id="priority">
+        <option value={priorityInput}> High </option>
+        <option value={priorityInput}> Med </option>
+        <option value={priorityInput}> Low </option>
+      </select>
       <label htmlFor="created">Created By: </label>
       <input
         type="text"
@@ -46,7 +46,7 @@ const newCardForm = props => {
         id="assign"
         value={assignedInput}
       />
-
+      <NewCardButton />
     </div>
   )
 }
