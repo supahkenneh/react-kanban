@@ -26,24 +26,26 @@ html {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: solid;
-  border-style: 1px;
+  /* border: solid;
+  border-style: 1px; */
 }
 
 .status_names {
   padding-top: 18px;
   font-size: 20px;
-  border: solid;
-  border-style: 1px;
+  /* border: solid;
+  border-style: 1px; */
 }
 
 .main_body {
-  border: solid;
-  border-style: 1px;
+  border: 1px;
+  border-style: solid;
+  display: flex;
+  padding: 10px;
 }
 
 .card {
   margin-bottom: 10px;
-  border: solid;
-  border-style: 1px;
+  border: 1px;
+  border-style: solid;
 }

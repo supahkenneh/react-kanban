@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import {connect} from 'react-redux';
+import {loadCards} from '../../actions';
 
 import Header from '../Header';
 import SecondaryHeader from '../SecondaryHeader'
@@ -17,28 +19,39 @@ class App extends Component {
   componentDidMount() {
     // console.log('mount');
     axios.get('/api')
-    .then(cards => {
-      console.log('mount', cards.data);
-      this.setState({ cards: cards.data })
-    })
-    .catch(err => console.log(err));
+      .then(cards => {
+        console.log('mount', cards.data);
+        this.setState({ cards: cards.data })
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
     return (
       <div className="App">
-        <div className="main_header_container">
-          <Header />
-        </div>
-        <div className="secondary_header_container">
-          <SecondaryHeader />
-        </div>
+        <Header />
+        <SecondaryHeader />
         <div className="main_body">
           <Column cards={this.state.cards} />
         </div>
       </div>
     );
   }
-}
+};
 
-export default App;
+const mapStateToProps = state => {
+  console.log('state ', state);
+  return {
+    cards: state.cardsList
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadCards: cards => {
+      dispatch(loadCards(cards));
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

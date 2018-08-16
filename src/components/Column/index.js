@@ -2,14 +2,11 @@ import React from 'react';
 import TaskCard from '../TaskCard';
 
 const Column = props => {
-  // console.log('column ', props)
+  console.log('column ', props.cards)
   return (
     <div className="column_component">
-      { props.cards
-        // .filter(card => {
-        //   return card.status;
-        // })
-        .map((card, idx) => {
+      {
+        props.cards.map((card, idx) => {
           console.log('map ', card.status, card);
           return <TaskCard
             key={idx}
