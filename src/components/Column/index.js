@@ -2,7 +2,7 @@ import React from 'react';
 import CardList from '../CardList';
 
 const Column = props => {
-  console.log('column ', props)
+  // console.log('column ', props)
   return (
     <div className="column">
       <div className="column_header">

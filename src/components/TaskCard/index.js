@@ -1,13 +1,13 @@
 import React from 'react';
 
-const TaskCard = ({ title, body, priority, created, assigned }) => {
+const TaskCard = ({ title, body, priority, createdBy, assignedTo }) => {
   return (
     <div className="card">
       <div>{title}</div>
       <div>{body}</div>
       <div>Priority: {priority}</div>
-      <div>Created by: {created}</div>
-      <div>Assigned to: {assigned}</div>
+      <div>Created by: {createdBy}</div>
+      <div>Assigned to: {assignedTo}</div>
     </div>
   )
 }

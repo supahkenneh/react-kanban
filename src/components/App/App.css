@@ -6,6 +6,11 @@ html {
   width: 100%;
 }
 
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: whitesmoke;
+}
+
 .App-header {
   width: 100%;
   background-color: #222;
@@ -17,35 +22,30 @@ html {
 .App-title {
   margin: 0;
   color: white;
-  font-family: 'Nanum Gothic', sans-serif;
   font-size: 34px;
 }
 
-.headers {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* border: solid;
-  border-style: 1px; */
-}
-
-.status_names {
-  padding-top: 18px;
-  font-size: 20px;
-  /* border: solid;
-  border-style: 1px; */
-}
-
-.main_body {
-  border: 1px;
-  border-style: solid;
+.content_body {
   display: flex;
   padding: 10px;
+}
+
+.column {
+  width: 100%;
+}
+
+.card_column {
+  padding: 10px;
+}
+
+.column_header {
+  text-align: center;
+  font-size: 24px;
 }
 
 .card {
   margin-bottom: 10px;
   border: 1px;
   border-style: solid;
+  padding: 5px;
 }
