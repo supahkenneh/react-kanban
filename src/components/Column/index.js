@@ -9,13 +9,13 @@ const Column = props => {
         {props.label}
       </div>
       <div className="column_body">
-        <CardList cards={filterShit(props)} />
+        <CardList cards={filterCards(props)} />
       </div>
     </div>
   );
 };
 
-function filterShit(props) {
+function filterCards(props) {
   switch (props.label) {
     case 'In Queue':
       return props.cards.filter(card => card.status === 'queue')
@@ -27,6 +27,5 @@ function filterShit(props) {
       return props.cards;   
   }
 }
-
 
 export default Column;

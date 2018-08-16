@@ -12,6 +12,7 @@ const CardList = props => {
             key={idx}
             title={card.title}
             body={card.body}
+            status={card.status}
             priority={card.priority}
             createdBy={card.created_by}
             assignedTo={card.assigned_to}
@@ -20,10 +21,6 @@ const CardList = props => {
       })}
     </div>
   )
-}
-
-function filterCards(props) {
-  console.log(props);
 }
 
 export default CardList;
