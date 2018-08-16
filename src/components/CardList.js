@@ -2,7 +2,7 @@ import React from 'react';
 import TaskCard from './TaskCard';
 
 const CardList = props => {
-  console.log('cards ', props);
+  console.log('cardlist ', props);
 
   return (
     <div className="card_column">
