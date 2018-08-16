@@ -1,6 +1,7 @@
 import React from 'react';
 
-const ProgressCard = (props) => {
+const TaskCard = (props) => {
+  console.log('taskCard ', props)
   return (
     <li>
       <div>{props.title}</div>
@@ -9,4 +10,4 @@ const ProgressCard = (props) => {
   )
 }
 
-export default ProgressCard;
+export default TaskCard;

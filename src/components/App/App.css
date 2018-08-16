@@ -1,28 +1,43 @@
-.main_body {
+/* font-family: 'Nanum Gothic', sans-serif; */
+
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.App-header {
+  width: 100%;
+  background-color: #222;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.App-title {
+  margin: 0;
+  color: white;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 34px;
+}
+
+.headers {
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: cornflowerblue;
-  width: 100%;
-  padding-top: 70px
+  align-items: center;
+  border: solid;
+  border-style: 1px;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
+.status_names {
+  padding-top: 18px;
+  font-size: 20px;
+  border: solid;
+  border-style: 1px;
 }
 
-li {
-  list-style-type: none;
-}
-
-p {
-  margin: 0;
-}
-
-.task_card {
-  border: 1px;
-  border-style: solid;
-  height: 100px;
-  width: 300px;
-  padding: 10px;
+.main_body {
+  border: solid;
+  border-style: 1px;
 }

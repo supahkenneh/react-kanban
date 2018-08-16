@@ -2,6 +2,7 @@ import React from 'react';
 import TaskCard from '../TaskCard';
 
 const Column = props => {
+  console.log('column ', props)
   return (
     <div id="progress_container">
       <ul>
