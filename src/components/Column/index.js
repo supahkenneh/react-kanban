@@ -1,14 +1,14 @@
 import React from 'react';
-import ProgressCard from '../ProgressCard';
+import TaskCard from '../TaskCard';
 
-const Progress = props => {
+const Column = props => {
   return (
     <div id="progress_container">
       <ul>
         {
           props.cards.map((card, idx) => {
             if (card.status === 'progress') {
-              return <ProgressCard key={idx} title={card.title} body={card.body} />
+              return <TaskCard key={idx} title={card.title} body={card.body} />
             }
           })
         }
@@ -17,4 +17,4 @@ const Progress = props => {
   );
 };
 
-export default Progress;
+export default Column;

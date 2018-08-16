@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+
 import Header from '../Header';
 import SecondaryHeader from '../SecondaryHeader'
-import Queue from '../Queue';
-import Progress from '../Progress';
-import Done from '../Done';
+import Column from '../Column';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cards: [
-        // { title: 'vacuum', body: 'the rug' },
-        // { title: 'eat', body: 'dinner' },
-        // { title: 'return', body: 'underwear' }
-      ]
+      cards: []
     }
   }
 
   componentDidMount() {
-    console.log('mount');
+    // console.log('mount');
     axios.get('/api')
     .then(cards => {
+      console.log('mount', cards.data);
       this.setState({ cards: cards.data })
     })
     .catch(err => console.log(err));
@@ -38,9 +34,9 @@ class App extends Component {
           <SecondaryHeader />
         </div>
         <div className="main_body">
-          <Queue cards={this.state.cards} />
-          <Progress cards={this.state.cards} />
-          <Done cards={this.state.cards} />
+          <Column cards={this.state.cards} />
+          {/* <Progress cards={this.state.cards} /> */}
+          {/* <Done cards={this.state.cards} /> */}
         </div>
       </div>
     );
