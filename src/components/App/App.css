@@ -41,3 +41,9 @@ html {
   border: solid;
   border-style: 1px;
 }
+
+.card {
+  margin-bottom: 10px;
+  border: solid;
+  border-style: 1px;
+}

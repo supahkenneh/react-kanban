@@ -12,5 +12,3 @@ app.use('/api', routes)
 app.listen(PORT, (req, res) => {
   console.log(`Server started on port: ${PORT}`);
 });
-
-//refactor components

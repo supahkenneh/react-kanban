@@ -35,8 +35,6 @@ class App extends Component {
         </div>
         <div className="main_body">
           <Column cards={this.state.cards} />
-          {/* <Progress cards={this.state.cards} /> */}
-          {/* <Done cards={this.state.cards} /> */}
         </div>
       </div>
     );
