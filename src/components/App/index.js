@@ -52,6 +52,5 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 //column dynamic?
-//drop down for assign
 //render createdby and assign to without refreshing page
 //button for changing statuses and edit/delete

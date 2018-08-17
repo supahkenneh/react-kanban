@@ -12,11 +12,13 @@ body {
 }
 
 .App-header {
-  width: 100%;
   background-color: #222;
   height: 50px;
   padding-top: 10px;
   padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .App-title {
@@ -45,8 +47,42 @@ body {
 
 .card {
   margin-bottom: 10px;
-  border: 2px;
+  border: 3px;
   border-style: solid;
   padding: 5px;
   box-shadow: 1px 1px 2px black;
+}
+
+#delete_button, #edit_button {
+  border: 1px solid black;
+  margin: 5px;
+  height: 25px;
+  width: 40px;
+  background-color: #5A6166;
+  color: white;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+#delete_button:hover, #edit_button:hover {
+  background-color: white;
+  color: black;
+}
+
+#add_button {
+  height: 40px;
+  width: 125px;
+  margin-right: 5px;
+  font-size: 18px;
+  font-family: 'Nanum Gothic', sans-serif;
+  background: transparent;
+  color: white;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+#add_button:hover {
+  background-color: white;
+  color: black;
 }

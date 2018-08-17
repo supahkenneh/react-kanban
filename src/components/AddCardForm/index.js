@@ -49,7 +49,7 @@ class NewCardForm extends Component {
     data.body = this.state.bodyInput;
     data.priority_id = this.state.priorityInput;
     data.created_by = this.state.createInput;
-    data.assigned_to = Number(this.state.assignedInput);
+    data.assigned_to = this.state.assignedInput;
     data.status_id = 1
 
     this.props.addCard(data)
@@ -63,8 +63,6 @@ class NewCardForm extends Component {
   }
 
   render() {
-    /////////
-    console.log(this.props.users);
     return (
       <div className="form-container">
         <label htmlFor="title">Title: </label>
@@ -114,7 +112,6 @@ class NewCardForm extends Component {
             )
           })}
         </select>
-        <NewCardButton label="Add Card" clickHandler={this.addCard} />
       </div>
     )
   }

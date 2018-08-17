@@ -22,7 +22,7 @@ router.get('/user', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   let {
     title,
     body,
