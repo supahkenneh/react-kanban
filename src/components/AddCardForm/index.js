@@ -112,6 +112,7 @@ class NewCardForm extends Component {
             )
           })}
         </select>
+        <NewCardButton label="Add Card" clickHandler={this.addCard} />
       </div>
     )
   }

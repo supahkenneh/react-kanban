@@ -34,6 +34,9 @@ router.post('/', (req, res) => {
 
   return new Card(req.body)
     .save()
+    .then(response => {
+      return response.refresh({withRelated: ['priority', 'status', 'createdBy', 'assignedTo']})
+    })
     .then(newCard => {
       return res.json(newCard)
     })
