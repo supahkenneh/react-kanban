@@ -48,7 +48,8 @@ router.delete('/:id', (req, res) => {
   return new Card({ id })
     .destroy()
     .then(cards => {
-      cards.refresh({ withRelated: ['priority', 'status', 'createdBy', 'assignedTo'] })
+      return Card
+        .fetchAll({ withRelated: ['priority', 'status', 'createdBy', 'assignedTo'] })
         .then(cards => {
           res.json(cards);
         })

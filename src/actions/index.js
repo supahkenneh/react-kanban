@@ -49,10 +49,10 @@ export const deleteCard = card => {
   return dispatch => {
     return axios.delete(`${PATH}/${card}`)
     .then(response => {
-      console.log(response);
+      console.log('response', response);
       dispatch({
         type: DELETE_CARD,
-        cards: card
+        cards: response.data
       })
     })
   }

@@ -5,14 +5,13 @@ const initialState = [
 ];
 
 const cardsList = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case LOAD_CARDS:
       return [...action.cards]
     case ADD_CARD:
       return [...state, action.cards]
     case DELETE_CARD:
-      return [...state, action.cards]
+      return [...action.cards]
     default:
       return state;
   }

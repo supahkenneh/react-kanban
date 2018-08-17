@@ -9,7 +9,7 @@ class TaskCard extends React.Component {
   // }
   
   render() {
-    // console.log('props', this.props);
+    console.log('props', this.props);
     
     const {
       id,
@@ -28,7 +28,10 @@ class TaskCard extends React.Component {
         <div>Priority: {priority}</div>
         <div>Created by: {createdBy}</div>
         <div>Assigned to: {assigned}</div>
-        <button id="delete_button" onClick={deleteCard(this.props.id)}>Del</button>
+        <button 
+          id="delete_button" 
+          onClick={() => {this.props.deleteCard(id)}}
+        >Del</button>
       </div>
     )
   }
