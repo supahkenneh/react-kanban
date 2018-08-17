@@ -5,11 +5,12 @@ export const ADD_CARD = 'ADD_CARD';
 // export const GET_USERS = 'GET_USERS';
 const PATH = '/api';
 // const USER_PATH = '/api/user';
+
 export const loadCards = () => {
   return dispatch => {
     return axios.get(PATH)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: LOAD_CARDS,
           cards: response.data

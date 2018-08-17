@@ -1,13 +1,13 @@
 import React from 'react';
 
 const TaskCard = (props) => {
-  console.log('props', props);
+  // console.log('props', props);
   const { 
     title, 
     body, 
     priority, 
     createdBy, 
-    assignedTo, 
+    assigned, 
     status 
   } = props;
 
@@ -17,7 +17,7 @@ const TaskCard = (props) => {
       <div>{body}</div>
       <div>Priority: {priority}</div>
       <div>Created by: {createdBy}</div>
-      <div>Assigned to: {assignedTo}</div>
+      <div>Assigned to: {assigned}</div>
     </div>
   )
 }
