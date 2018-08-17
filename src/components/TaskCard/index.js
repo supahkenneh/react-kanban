@@ -23,21 +23,21 @@ const TaskCard = (props) => {
 
 export default TaskCard;
 
-function colorfy(prop) {
-  switch (prop) {
-    case 'queue':
+function colorfy(status) {
+  switch (status) {
+    case 1:
       return {
         backgroundColor: '#AFDEDC',
         borderRadius: 2,
         borderColor: '#90B6B5'
       }
-    case 'progress':
+    case 2:
       return {
         backgroundColor: '#8EDCE6',
         borderRadius: 2,
         borderColor: '#75B5BD'
       }
-    case 'done':
+    case 3:
       return {
         backgroundColor: '#91A8A4',
         borderRadius: 2,

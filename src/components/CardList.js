@@ -2,7 +2,7 @@ import React from 'react';
 import TaskCard from './TaskCard';
 
 const CardList = props => {
-  // console.log('cardlist ', props);
+  console.log('cardlist ', props);
 
   return (
     <div className="card_column">
@@ -12,8 +12,8 @@ const CardList = props => {
             key={idx}
             title={card.title}
             body={card.body}
-            status={card.status}
-            priority={card.priority}
+            status={card.status_id}
+            priority={card.priority_id}
             createdBy={card.created_by}
             assignedTo={card.assigned_to}
           />

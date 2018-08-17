@@ -37,8 +37,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadCards: cards => {
-      dispatch(loadCards(cards));
+    loadCards: () => {
+      dispatch(loadCards());
     }
   }
 };
@@ -46,6 +46,5 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 //column dynamic?
-//POST
 //drop down for assign
 //button for changing statuses

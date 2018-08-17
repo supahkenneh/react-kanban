@@ -3,7 +3,12 @@ const User = require('../db/models/User');
 
 router.route('/')
   .get((req, res) => {
-    res.send('users here');
+    return User
+      .fetchAll()
+      .then(users => {
+        res.json(users);
+      })
+      .catch(err => console.log(err));
   });
 
 module.exports = router;

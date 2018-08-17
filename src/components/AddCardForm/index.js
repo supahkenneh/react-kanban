@@ -3,6 +3,7 @@ import NewCardButton from './addbutton';
 
 import { connect } from 'react-redux';
 import { addCard } from '../../actions';
+// import { getUsers } from '../../actions';
 
 class NewCardForm extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class NewCardForm extends Component {
   handleInputChange(event) {
     switch (event.target.id) {
       case 'title':
-      this.setState({ titleInput: event.target.value })
+        this.setState({ titleInput: event.target.value })
         break;
       case 'body':
         this.setState({ bodyInput: event.target.value })
@@ -34,7 +35,7 @@ class NewCardForm extends Component {
       case 'created':
         this.setState({ createInput: event.target.value })
         break;
-      case 'assign': 
+      case 'assign':
         this.setState({ assignedInput: event.target.value })
         break;
       default:
@@ -61,6 +62,7 @@ class NewCardForm extends Component {
         data.priority_id = 3
         break;
     }
+
     this.props.addCard(data)
     this.setState({
       titleInput: '',
@@ -91,10 +93,10 @@ class NewCardForm extends Component {
           onChange={this.handleInputChange}
         />
         <label htmlFor="priority">Priority: </label>
-        <select name="priority" id="priority" 
+        <select name="priority" id="priority"
           value={this.state.priorityInput}
           onChange={this.handleInputChange}
-          >
+        >
           <option> High </option>
           <option> Med </option>
           <option> Low </option>
@@ -108,14 +110,17 @@ class NewCardForm extends Component {
           onChange={this.handleInputChange}
         />
         <label htmlFor="assign">Assign To: </label>
-        <input
-          type="text"
+        <select
           name="assign"
           id="assign"
-          value={this.assignedInput}
+          value={this.state.assignedInput}
           onChange={this.handleInputChange}
-        />
-        <NewCardButton label="Add Card" clickHandler={this.addCard}/>
+        >
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+        <NewCardButton label="Add Card" clickHandler={this.addCard} />
       </div>
     )
   }
@@ -125,7 +130,10 @@ const mapDispatchToProps = dispatch => {
   return {
     addCard: card => {
       dispatch(addCard(card));
-    }
+    },
+    // getUsers: user => {
+    //   dispatch(getUsers(user));
+    // }
   }
 }
 
