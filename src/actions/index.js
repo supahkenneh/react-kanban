@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const ADD_CARD = 'ADD_CARD';
+export const DELETE_CARD = 'DELETE_CARD';
 export const GET_USERS = 'GET_USERS';
 
 const PATH = '/api';
@@ -39,6 +40,19 @@ export const getUsers = () => {
       dispatch({
         type: GET_USERS,
         users: response.data
+      })
+    })
+  }
+}
+
+export const deleteCard = card => {
+  return dispatch => {
+    return axios.delete(`${PATH}/${card}`)
+    .then(response => {
+      console.log(response);
+      dispatch({
+        type: DELETE_CARD,
+        cards: card
       })
     })
   }

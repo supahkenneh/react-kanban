@@ -13,12 +13,14 @@ const CardList = props => {
         return (
           <TaskCard
             key={idx}
+            id={card.id}
             title={card.title}
             body={card.body}
             status={card.status_id}
             priority={priorityName}
             createdBy={createdBy}
             assigned={assignedTo}
+            cards={props.cards}
           />
         )
       })}

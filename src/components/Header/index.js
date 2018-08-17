@@ -1,6 +1,6 @@
 import React from 'react';
 import NewCardButton from '../AddCardForm/addbutton';
-import { addCard } from '../../actions';
+// import { addCard } from '../../actions';
 
 const Header = props => {
   return (
