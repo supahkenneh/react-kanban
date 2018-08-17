@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Card = require('../db/models/Card');
-// const db = require('../db/knex');
+const User = require('../db/models/User');
 
 router.get('/', (req, res) => {
   return Card
@@ -10,6 +10,15 @@ router.get('/', (req, res) => {
       res.json(cards);
     })
     .catch(err => console.log(err));
+})
+
+router.get('/user', (req, res) => {
+  return User
+  .fetchAll()
+  .then(users => {
+    // console.log(users)
+    res.json(users);
+  })
 })
 
 router.post('/', (req, res) => {

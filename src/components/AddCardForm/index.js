@@ -3,7 +3,6 @@ import NewCardButton from './addbutton';
 
 import { connect } from 'react-redux';
 import { addCard } from '../../actions';
-// import { getUsers } from '../../actions';
 
 class NewCardForm extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class NewCardForm extends Component {
       bodyInput: '',
       priorityInput: '',
       createInput: '',
-      assignedInput: ''
+      assignedInput: '',
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.addCard = this.addCard.bind(this);
@@ -64,6 +63,8 @@ class NewCardForm extends Component {
   }
 
   render() {
+    /////////
+    console.log(this.props.users);
     return (
       <div className="form-container">
         <label htmlFor="title">Title: </label>
@@ -84,11 +85,10 @@ class NewCardForm extends Component {
         />
         <label htmlFor="priority">Priority: </label>
         <select name="priority" id="priority"
-          // value={this.state.priorityInput}
           onChange={this.handleInputChange}
         >
           <option>--Priority--</option>
-          <option value="3" > High </option>
+          <option value="3"> High </option>
           <option value="2"> Med </option>
           <option value="1"> Low </option>
         </select>
@@ -123,9 +123,6 @@ const mapDispatchToProps = dispatch => {
     addCard: card => {
       dispatch(addCard(card));
     }
-    // getUsers: user => {
-    //   dispatch(getUsers(user));
-    // }
   }
 }
 

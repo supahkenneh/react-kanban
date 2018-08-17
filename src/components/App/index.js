@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { loadCards } from '../../actions';
+import { loadCards, getUsers } from '../../actions';
 
 import Header from '../Header';
 import Body from '../Body';
@@ -10,12 +10,13 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cards: []
+      cards: [],
     }
   }
 
   componentDidMount() {
     this.props.loadCards();
+    this.props.getUsers();
   };
 
   render() {
@@ -23,15 +24,17 @@ class App extends Component {
       <div className="App">
         <Header />
         <Body cards={this.props.cards} />
-        <NewCardForm />
+        <NewCardForm users={this.props.users} />
       </div>
     );
   }
 };
 
 const mapStateToProps = state => {
+  console.log('state', state);
   return {
-    cards: state.cardsList
+    cards: state.cardsList,
+    users: state.usersList,
   }
 };
 
@@ -39,6 +42,9 @@ const mapDispatchToProps = dispatch => {
   return {
     loadCards: () => {
       dispatch(loadCards());
+    },
+    getUsers: () => {
+      dispatch(getUsers());
     }
   }
 };
@@ -47,4 +53,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 //column dynamic?
 //drop down for assign
-//button for changing statuses
+//render createdby and assign to without refreshing page
+//button for changing statuses and edit/delete
