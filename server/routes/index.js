@@ -4,14 +4,16 @@ const Card = require('../db/models/Card');
 
 router.get('/', (req, res) => {
   return Card
-    .fetchAll()
+    .fetchAll({ withRelated: ['priority', 'status', 'createdBy', 'assignedTo']})
     .then(cards => {
+      // console.log(cards);
       res.json(cards);
     })
     .catch(err => console.log(err));
 })
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   let {
     title,
     body,

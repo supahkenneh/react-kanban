@@ -2,11 +2,11 @@ import React from 'react';
 import TaskCard from './TaskCard';
 
 const CardList = props => {
-  console.log('cardlist ', props);
-
+  // console.log('cardlist ', props);
   return (
     <div className="card_column">
       {props.cards.map((card, idx) => {
+        console.log('map', card);
         return (
           <TaskCard
             key={idx}

@@ -12,7 +12,7 @@ class NewCardForm extends Component {
     this.state = {
       titleInput: '',
       bodyInput: '',
-      priorityInput: 'High',
+      priorityInput: '',
       createInput: '',
       assignedInput: ''
     }
@@ -48,26 +48,16 @@ class NewCardForm extends Component {
     const data = {};
     data.title = this.state.titleInput;
     data.body = this.state.bodyInput;
+    data.priority_id = this.state.priorityInput;
     data.created_by = this.state.createInput;
-    data.assigned_to = this.state.assignedInput;
+    data.assigned_to = Number(this.state.assignedInput);
     data.status_id = 1
-    switch (this.state.priorityInput) {
-      case 'Med':
-        data.priority_id = 2
-        break;
-      case 'Low':
-        data.priority_id = 1
-        break;
-      default:
-        data.priority_id = 3
-        break;
-    }
 
     this.props.addCard(data)
     this.setState({
       titleInput: '',
       bodyInput: '',
-      priorityInput: 'High',
+      priorityInput: '',
       createInput: '',
       assignedInput: ''
     })
@@ -94,12 +84,13 @@ class NewCardForm extends Component {
         />
         <label htmlFor="priority">Priority: </label>
         <select name="priority" id="priority"
-          value={this.state.priorityInput}
+          // value={this.state.priorityInput}
           onChange={this.handleInputChange}
         >
-          <option> High </option>
-          <option> Med </option>
-          <option> Low </option>
+          <option>--Priority--</option>
+          <option value="3" > High </option>
+          <option value="2"> Med </option>
+          <option value="1"> Low </option>
         </select>
         <label htmlFor="created">Created By: </label>
         <input
@@ -116,9 +107,10 @@ class NewCardForm extends Component {
           value={this.state.assignedInput}
           onChange={this.handleInputChange}
         >
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+          <option>--Assign task to user--</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
         </select>
         <NewCardButton label="Add Card" clickHandler={this.addCard} />
       </div>
@@ -130,7 +122,7 @@ const mapDispatchToProps = dispatch => {
   return {
     addCard: card => {
       dispatch(addCard(card));
-    },
+    }
     // getUsers: user => {
     //   dispatch(getUsers(user));
     // }

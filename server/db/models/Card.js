@@ -1,23 +1,26 @@
 const bookshelf = require('./bookshelf');
+require('./Status');
+require('./Priority');
+require('./User');
 
 class Card extends bookshelf.Model {
   get tableName() { return 'cards'; }
   get hasTimestamps() { return true; }
 
   priority() {
-    return this.belongsTo('Priority', 'priority_id');
+    return this.hasOne('Priority', 'id', 'priority_id');
   };
 
   status() {
-    return this.belongsTo('Status', 'status_id');
+    return this.hasOne('Status', 'id', 'status_id');
   };
 
   createdBy() {
-    return this.belongsTo('User', 'created_by');
+    return this.hasOne('User', 'id', 'created_by');
   };
 
   assignedTo() {
-    return this.belongsTo('User', 'assigned_to');
+    return this.hasOne('User', 'id', 'assigned_to');
   };
 };
 

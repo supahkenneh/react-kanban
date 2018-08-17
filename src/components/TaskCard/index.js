@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TaskCard = (props) => {
+  console.log('props', props);
   const { 
     title, 
     body, 
