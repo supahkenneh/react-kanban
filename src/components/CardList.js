@@ -7,8 +7,8 @@ const CardList = props => {
     <div className="card_column">
       {props.cards.map((card, idx) => {
         const priorityName = card && card.priority ? card.priority.name : null;
-        const createdBy = card && card.createdBy ? card.createdBy.first_name : null;
-        const assignedTo = card && card.assignedTo ? card.assignedTo.first_name : null;
+        const createdBy = card && card.createdBy ? `${card.createdBy.first_name} ${card.createdBy.last_name}`: null;
+        const assignedTo = card && card.assignedTo ? `${card.assignedTo.first_name} ${card.assignedTo.last_name}` : null;
         // console.log('map', test);
         return (
           <TaskCard

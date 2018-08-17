@@ -108,9 +108,11 @@ class NewCardForm extends Component {
           onChange={this.handleInputChange}
         >
           <option>--Assign task to user--</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+          {this.props.users.map(card => {
+            return (
+              <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
+            )
+          })}
         </select>
         <NewCardButton label="Add Card" clickHandler={this.addCard} />
       </div>
