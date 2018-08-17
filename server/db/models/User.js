@@ -8,7 +8,7 @@ class User extends bookshelf.Model {
     return this.hasMany('Card', 'created_by');
   };
 
-  assigned() {
+  assignedCards() {
     return this.hasMany('Card', 'assigned_to');
   }
 };

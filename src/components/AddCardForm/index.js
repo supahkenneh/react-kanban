@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import NewCardButton from './addbutton';
+
+import { connect } from 'react-redux';
 import { addCard } from '../../actions';
 
-class newCardForm extends Component {
+class NewCardForm extends Component {
   constructor(props) {
     super(props)
 
@@ -13,15 +15,15 @@ class newCardForm extends Component {
       createInput: '',
       assignedInput: ''
     }
-
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.addCard = this.addCard.bind(this);
   }
 
   //records data from input fields
   handleInputChange(event) {
     switch (event.target.id) {
       case 'title':
-        this.setState({ titleInput: event.target.value })
+      this.setState({ titleInput: event.target.value })
         break;
       case 'body':
         this.setState({ bodyInput: event.target.value })
@@ -45,15 +47,33 @@ class newCardForm extends Component {
     const data = {};
     data.title = this.state.titleInput;
     data.body = this.state.bodyInput;
-    data.priority = this.state.priorityInput;
-    data.created = this.state.createInput;
-    data.assign = this.state.assignedInput;
-    data.status = 'queue'
+    data.created_by = this.state.createInput;
+    data.assigned_to = this.state.assignedInput;
+    data.status_id = 1
+    switch (this.state.priorityInput) {
+      case 'Med':
+        data.priority_id = 2
+        break;
+      case 'Low':
+        data.priority_id = 1
+        break;
+      default:
+        data.priority_id = 3
+        break;
+    }
+    this.props.addCard(data)
+    this.setState({
+      titleInput: '',
+      bodyInput: '',
+      priorityInput: 'High',
+      createInput: '',
+      assignedInput: ''
+    })
   }
 
   render() {
     return (
-      <div className="newCard-container">
+      <div className="form-container">
         <label htmlFor="title">Title: </label>
         <input
           type="text"
@@ -109,4 +129,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default newCardForm;
+export default connect(null, mapDispatchToProps)(NewCardForm);

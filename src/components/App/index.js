@@ -5,7 +5,7 @@ import { loadCards } from '../../actions';
 
 import Header from '../Header';
 import Body from '../Body';
-import AddForm from '../AddCardForm';
+import NewCardForm from '../AddCardForm';
 class App extends Component {
   constructor(props) {
     super(props)
@@ -23,14 +23,13 @@ class App extends Component {
       <div className="App">
         <Header />
         <Body cards={this.props.cards} />
-        <AddForm />
+        <NewCardForm />
       </div>
     );
   }
 };
 
 const mapStateToProps = state => {
-  // console.log('state ', state);
   return {
     cards: state.cardsList
   }
@@ -45,3 +44,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+//column dynamic?
+//POST
+//drop down for assign
+//button for changing statuses

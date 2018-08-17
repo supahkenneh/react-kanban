@@ -2,7 +2,7 @@ import React from 'react';
 
 const NewCardButton = props => {
   return (
-    <button onClick={props.clickHandler}>Add Task</button>
+    <button id="add_button" onClick={props.clickHandler}>Add Task</button>
   )
 }
 

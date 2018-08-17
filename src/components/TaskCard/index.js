@@ -1,6 +1,14 @@
 import React from 'react';
 
-const TaskCard = ({ title, body, priority, createdBy, assignedTo, status }) => {
+const TaskCard = (props) => {
+  const { 
+    title, 
+    body, 
+    priority, 
+    createdBy, 
+    assignedTo, 
+    status 
+  } = props;
 
   return (
     <div className="card" style={colorfy(status)}>
