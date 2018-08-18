@@ -3,7 +3,6 @@ import axios from 'axios';
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
-export const EDITING = 'EDITING';
 export const EDIT_CARD = 'EDIT_CARD';
 export const GET_USERS = 'GET_USERS';
 
@@ -67,7 +66,7 @@ export const editCard = card => {
       console.log('response', response);
       dispatch({
         type: EDIT_CARD,
-        cards: card
+        cards: response.data
       })
     })
   }

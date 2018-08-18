@@ -44,7 +44,6 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
-  console.log('req.body', req.body);
   let {
     title,
     body,
