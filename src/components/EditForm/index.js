@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editCard } from '../../actions';
+import EditButton from './editbutton';
 
 class EditCardForm extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class EditCardForm extends Component {
       priorityInput: '',
       createdInput: '',
       assignedInput: '',
-      statusInput: this.props.status_id
+      statusInput: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.editSelectedCard = this.editSelectedCard.bind(this);
@@ -35,19 +36,24 @@ class EditCardForm extends Component {
       case 'assign':
         this.setState({ assignedInput: event.target.value })
         break;
+      case 'status':
+        this.setState({ statusInput: event.target.value })
+        break;
       default:
         break;
     }
   }
 
-  editSelectedCard (event) {
+  editSelectedCard(event) {
+     
     const data = {}
+    data.id = this.props.id
     data.title = this.state.titleInput;
     data.body = this.state.bodyInput;
-    data.priority_id = this.state.createdInput;
-    data.created_by = this.state.createdInput;
-    data.assigned_to = this.state.assignedInput;
-    data.status_id = this.state.statusInput;
+    data.priority_id = Number(this.state.createdInput);
+    data.created_by = Number(this.state.createdInput);
+    data.assigned_to = Number(this.state.assignedInput);
+    data.status_id = Number(this.state.statusInput);
 
     this.props.editCard(data)
 
@@ -56,7 +62,8 @@ class EditCardForm extends Component {
       bodyInput: '',
       priorityInput: '',
       createdInput: '',
-      assignedInput: ''
+      assignedInput: '',
+      statusInput: '',
     })
   }
 
@@ -64,14 +71,13 @@ class EditCardForm extends Component {
     return (
       <div>
         <div className="EditCardForm_container">
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">Title: </label>
           <input
             type="text"
             name="title"
             id="title"
             value={this.state.titleInput}
             onChange={this.handleInputChange}
-            // placeholder={this.card.title}
           />
           <label htmlFor="body">Body: </label>
           <input
@@ -89,6 +95,15 @@ class EditCardForm extends Component {
             <option value="3"> High </option>
             <option value="2"> Med </option>
             <option value="1"> Low </option>
+          </select>
+          <label htmlFor="status">Status: </label>
+          <select name="status" id="status"
+            onChange={this.handleInputChange}
+          >
+            <option value="0">--Status--</option>
+            <option value="1">Queue</option>
+            <option value="2">Progress</option>
+            <option value="3">Done</option>
           </select>
           <label htmlFor="created">Created By: </label>
           <input
@@ -112,7 +127,7 @@ class EditCardForm extends Component {
               )
             })}
           </select>
-          <button id="submit_edit_button" onClick={this.editSelectedCard}>Submit</button>
+          <EditButton label="Edit Card" clickHandler={this.editSelectedCard}/>
         </div>
       </div>
     )
@@ -129,6 +144,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     editCard: card => {
+      console.log('card', card);
       dispatch(editCard(card))
     }
   }

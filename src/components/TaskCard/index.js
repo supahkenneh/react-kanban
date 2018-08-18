@@ -12,11 +12,11 @@ class TaskCard extends React.Component {
       editing: false
     }
   }
-  
-  toggleEditing (e) {
+
+  toggleEditing(e) {
     this.setState({
-      editing : !this.state.editing
-    }); 
+      editing: !this.state.editing
+    });
 
   }
 
@@ -35,7 +35,7 @@ class TaskCard extends React.Component {
     } = this.props;
 
     return (
-      <div className="card" style={colorfy(status)}>
+      <div className="card" style={colorfy(status)} id='card_id'>
         <div>{title}</div>
         <div>{body}</div>
         <div>Priority: {priority}</div>
@@ -46,12 +46,11 @@ class TaskCard extends React.Component {
           id="edit_button"
           onClick={this.toggleEditing.bind(this)}
         >Edit</button>
-
+        {this.state.editing && <EditCardForm id={id}/>}
         <button
           id="delete_button"
           onClick={() => { deleteCard(id) }}
         >Del</button>
-        {this.state.editing && <EditCardForm />}
       </div>
 
     )

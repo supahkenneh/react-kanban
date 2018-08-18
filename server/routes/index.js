@@ -22,7 +22,6 @@ router.get('/user', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  // console.log(req.body);
   let {
     title,
     body,
@@ -45,11 +44,21 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
+  console.log('req.body', req.body);
+  let {
+    title,
+    body,
+    priority_id,
+    created_by,
+    assigned_to,
+    status_id
+  } = req.body
   return new Card({ id })
-    .fetch({ withRelated: ['priority', 'status', 'createdBy', 'assignedTo']})
+    .save({ title, body, priority_id, created_by, assigned_to, status_id })
     .then(response => {
-      console.log('response', response);
+      return res.json(response)
     })
+    .catch(err => console.log(err))
 })
 
 router.delete('/:id', (req, res) => {
