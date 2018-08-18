@@ -59,19 +59,10 @@ export const deleteCard = card => {
   }
 }
 
-// export const editingCard = card => {
-//   return (dispatch) => {
-//     console.log('cardss', card);
-//     return dispatch({
-//       type: EDITING,
-//       card: card,
-//     })
-//   }
-// }
-
 export const editCard = card => {
   return dispatch => {
-    return axios.put(`${PATH}/${card}`)
+    console.log('card', card);
+    return axios.put(`${PATH}/${card.id}`, card)
     .then(response => {
       console.log('response', response);
       dispatch({

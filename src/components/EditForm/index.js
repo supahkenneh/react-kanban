@@ -10,7 +10,6 @@ class EditCardForm extends Component {
       titleInput: '',
       bodyInput: '',
       priorityInput: '',
-      statusInput: '',
       createdInput: '',
       assignedInput: '',
       statusInput: this.props.status_id
@@ -41,7 +40,7 @@ class EditCardForm extends Component {
     }
   }
 
-  editSelectedCard(event) {
+  editSelectedCard (event) {
     const data = {}
     data.title = this.state.titleInput;
     data.body = this.state.bodyInput;
@@ -50,7 +49,7 @@ class EditCardForm extends Component {
     data.assigned_to = this.state.assignedInput;
     data.status_id = this.state.statusInput;
 
-    this.props.editSelectedCard(data)
+    this.props.editCard(data)
 
     this.setState({
       titleInput: '',
@@ -72,6 +71,7 @@ class EditCardForm extends Component {
             id="title"
             value={this.state.titleInput}
             onChange={this.handleInputChange}
+            // placeholder={this.card.title}
           />
           <label htmlFor="body">Body: </label>
           <input
@@ -106,13 +106,13 @@ class EditCardForm extends Component {
             onChange={this.handleInputChange}
           >
             <option value="0">--Assign task to user--</option>
-            {/* {this.props.users.map(card => {
+            {this.props.users.map(user => {
               return (
-                <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
+                <option key={user.id} value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
               )
-            })} */}
+            })}
           </select>
-          <button id="edit_form_button" onClick={this.editSelectedCard}>Submit</button>
+          <button id="submit_edit_button" onClick={this.editSelectedCard}>Submit</button>
         </div>
       </div>
     )
