@@ -43,6 +43,15 @@ router.post('/', (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  return new Card({ id })
+    .fetch({ withRelated: ['priority', 'status', 'createdBy', 'assignedTo']})
+    .then(response => {
+      console.log('response', response);
+    })
+})
+
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
   return new Card({ id })

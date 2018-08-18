@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { deleteCard } from '../../actions';
+import { deleteCard, editingCard ,editCard } from '../../actions';
 
 class TaskCard extends React.Component {
   // constructor() {
   //   super()
   // }
-  
+
   render() {
-    console.log('props', this.props);
-    
+    // console.log('props', this.props);
+
     const {
       id,
       title,
@@ -19,6 +19,9 @@ class TaskCard extends React.Component {
       createdBy,
       assigned,
       status,
+      editing,
+      editingCard,
+      deleteCard
     } = this.props;
 
     return (
@@ -28,9 +31,15 @@ class TaskCard extends React.Component {
         <div>Priority: {priority}</div>
         <div>Created by: {createdBy}</div>
         <div>Assigned to: {assigned}</div>
-        <button 
-          id="delete_button" 
-          onClick={() => {this.props.deleteCard(id)}}
+
+        <button
+          id="edit_button"
+          onClick={() => { editingCard(id) }}
+        >Edit</button>
+
+        <button
+          id="delete_button"
+          onClick={() => { deleteCard(id) }}
         >Del</button>
       </div>
     )
@@ -49,7 +58,13 @@ const mapDispatchToProps = dispatch => {
   return {
     deleteCard: card => {
       dispatch(deleteCard(card));
-    }
+    },
+    editingCard: card => {
+      dispatch(editingCard(card));
+    },
+    // editCard: card => {
+    //   dispatch(editCard(card));
+    // }
   }
 }
 

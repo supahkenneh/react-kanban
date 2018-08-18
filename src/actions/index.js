@@ -3,6 +3,8 @@ import axios from 'axios';
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const ADD_CARD = 'ADD_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
+export const EDITING = 'EDITING';
+export const EDIT_CARD = 'EDIT_CARD';
 export const GET_USERS = 'GET_USERS';
 
 const PATH = '/api';
@@ -49,10 +51,32 @@ export const deleteCard = card => {
   return dispatch => {
     return axios.delete(`${PATH}/${card}`)
     .then(response => {
-      console.log('response', response);
       dispatch({
         type: DELETE_CARD,
         cards: response.data
+      })
+    })
+  }
+}
+
+export const editingCard = card => {
+  return (dispatch) => {
+    console.log('cardss', card);
+    return dispatch({
+      type: EDITING,
+      card: card,
+    })
+  }
+}
+
+export const editCard = card => {
+  return dispatch => {
+    return axios.put(`${PATH}/${card}`)
+    .then(response => {
+      console.log('response', response);
+      dispatch({
+        type: EDIT_CARD,
+        cards: card
       })
     })
   }

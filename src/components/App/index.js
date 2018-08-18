@@ -6,6 +6,7 @@ import { loadCards, getUsers } from '../../actions';
 import Header from '../Header';
 import Body from '../Body';
 import NewCardForm from '../AddCardForm';
+import Modal from '../Modal/index';
 class App extends Component {
   constructor(props) {
     super(props)
@@ -25,6 +26,7 @@ class App extends Component {
         <Header />
         <Body cards={this.props.cards} />
         <NewCardForm users={this.props.users} />
+        <Modal />
       </div>
     );
   }
@@ -51,5 +53,4 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-//column dynamic?
-//button for changing statuses and edit/delete
+//button for changing statuses and edit

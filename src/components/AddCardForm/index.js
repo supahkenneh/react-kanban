@@ -60,6 +60,8 @@ class NewCardForm extends Component {
       createInput: '',
       assignedInput: ''
     })
+    document.getElementById('priority').selectedIndex = 0;
+    document.getElementById('assign').selectedIndex = 0;
   }
 
   render() {
@@ -85,7 +87,7 @@ class NewCardForm extends Component {
         <select name="priority" id="priority"
           onChange={this.handleInputChange}
         >
-          <option>--Priority--</option>
+          <option value="0">--Priority--</option>
           <option value="3"> High </option>
           <option value="2"> Med </option>
           <option value="1"> Low </option>
@@ -105,7 +107,7 @@ class NewCardForm extends Component {
           value={this.state.assignedInput}
           onChange={this.handleInputChange}
         >
-          <option>--Assign task to user--</option>
+          <option value="0">--Assign task to user--</option>
           {this.props.users.map(card => {
             return (
               <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
