@@ -20,7 +20,6 @@ const CardList = props => {
             createdBy={createdBy}
             assigned={assignedTo}
             cards={props.cards}
-            editing={card.editing = false}
           />
         )
       })}

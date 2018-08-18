@@ -59,15 +59,15 @@ export const deleteCard = card => {
   }
 }
 
-export const editingCard = card => {
-  return (dispatch) => {
-    console.log('cardss', card);
-    return dispatch({
-      type: EDITING,
-      card: card,
-    })
-  }
-}
+// export const editingCard = card => {
+//   return (dispatch) => {
+//     console.log('cardss', card);
+//     return dispatch({
+//       type: EDITING,
+//       card: card,
+//     })
+//   }
+// }
 
 export const editCard = card => {
   return dispatch => {

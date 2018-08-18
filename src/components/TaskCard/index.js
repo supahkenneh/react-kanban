@@ -1,12 +1,24 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { deleteCard, editingCard ,editCard } from '../../actions';
+import { deleteCard } from '../../actions';
+import EditCardForm from '../EditForm';
 
 class TaskCard extends React.Component {
-  // constructor() {
-  //   super()
-  // }
+  constructor() {
+    super()
+
+    this.state = {
+      editing: false
+    }
+  }
+  
+  toggleEditing (e) {
+    this.setState({
+      editing : !this.state.editing
+    }); 
+
+  }
 
   render() {
     // console.log('props', this.props);
@@ -19,8 +31,6 @@ class TaskCard extends React.Component {
       createdBy,
       assigned,
       status,
-      editing,
-      editingCard,
       deleteCard
     } = this.props;
 
@@ -34,14 +44,16 @@ class TaskCard extends React.Component {
 
         <button
           id="edit_button"
-          onClick={() => { editingCard(id) }}
+          onClick={this.toggleEditing.bind(this)}
         >Edit</button>
 
         <button
           id="delete_button"
           onClick={() => { deleteCard(id) }}
         >Del</button>
+        {this.state.editing && <EditCardForm />}
       </div>
+
     )
   }
 }
@@ -59,9 +71,9 @@ const mapDispatchToProps = dispatch => {
     deleteCard: card => {
       dispatch(deleteCard(card));
     },
-    editingCard: card => {
-      dispatch(editingCard(card));
-    },
+    // editingCard: card => {
+    //   dispatch(editingCard(card));
+    // },
     // editCard: card => {
     //   dispatch(editCard(card));
     // }
