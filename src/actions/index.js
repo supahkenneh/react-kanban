@@ -60,10 +60,8 @@ export const deleteCard = card => {
 
 export const editCard = card => {
   return dispatch => {
-    console.log('1card', card);
     return axios.put(`${PATH}/${card.id}`, card)
     .then(response => {
-      console.log('response', response);
       dispatch({
         type: EDIT_CARD,
         cards: response.data

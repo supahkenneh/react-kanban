@@ -55,7 +55,10 @@ router.put('/:id', (req, res) => {
   return new Card({ id })
     .save({ title, body, priority_id, created_by, assigned_to, status_id })
     .then(response => {
-      return res.json(response)
+      return response.refresh({ withRelated: ['priority', 'status', 'createdBy', 'assignedTo'] })
+    })
+    .then(response => {
+      return res.json(response);
     })
     .catch(err => console.log(err))
 })
