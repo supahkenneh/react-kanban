@@ -18,7 +18,7 @@ class TaskCard extends React.Component {
       editing: !this.state.editing
     });
   }
-  
+
 
 
   render() {
@@ -43,14 +43,14 @@ class TaskCard extends React.Component {
         <div>Assigned to: {assigned}</div>
 
         <button
-          id="edit_button"
-          onClick={this.toggleEditing.bind(this)}
-        >Edit</button>
-        {this.state.editing && <EditCardForm id={id}/>}
-        <button
           id="delete_button"
           onClick={() => { deleteCard(id) }}
         >Del</button>
+        <button
+          id="edit_button"
+          onClick={this.toggleEditing.bind(this)}
+        >Edit</button>
+        {this.state.editing && <EditCardForm id={id} />}
       </div>
 
     )
@@ -58,10 +58,9 @@ class TaskCard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('state', state);
   return {
     cards: state.cardsList,
-    users: state.usersList
+    users: state.usersList,
   }
 }
 

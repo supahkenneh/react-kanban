@@ -17,6 +17,7 @@ class NewCardForm extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.addCard = this.addCard.bind(this);
+    console.log('this.props', this.props);
   }
 
   //records data from input fields
@@ -65,56 +66,62 @@ class NewCardForm extends Component {
   }
 
   render() {
+
     return (
-      <div className="form-container">
-        <label htmlFor="title">Title: </label>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          value={this.state.titleInput}
-          onChange={this.handleInputChange}
-        />
-        <label htmlFor="body">Body: </label>
-        <input
-          type="text"
-          name="body"
-          id="body"
-          value={this.state.bodyInput}
-          onChange={this.handleInputChange}
-        />
-        <label htmlFor="priority">Priority: </label>
-        <select name="priority" id="priority"
-          onChange={this.handleInputChange}
-        >
-          <option value="0">--Priority--</option>
-          <option value="3"> High </option>
-          <option value="2"> Med </option>
-          <option value="1"> Low </option>
-        </select>
-        <label htmlFor="created">Created By: </label>
-        <input
-          type="text"
-          name="created"
-          id="created"
-          value={this.createInput}
-          onChange={this.handleInputChange}
-        />
-        <label htmlFor="assign">Assign To: </label>
-        <select
-          name="assign"
-          id="assign"
-          value={this.state.assignedInput}
-          onChange={this.handleInputChange}
-        >
-          <option value="0">--Assign task to user--</option>
-          {this.props.users.map(card => {
-            return (
-              <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
-            )
-          })}
-        </select>
-        <NewCardButton label="Add Card" clickHandler={this.addCard} />
+      <div className="modal" id="simple_modal">
+        <div className="modal_content">
+          <div className="close">x</div>
+          <div className="form-container">
+            <label htmlFor="title">Title: </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              value={this.state.titleInput}
+              onChange={this.handleInputChange}
+            />
+            <label htmlFor="body">Body: </label>
+            <input
+              type="text"
+              name="body"
+              id="body"
+              value={this.state.bodyInput}
+              onChange={this.handleInputChange}
+            />
+            <label htmlFor="priority">Priority: </label>
+            <select name="priority" id="priority"
+              onChange={this.handleInputChange}
+            >
+              <option value="0">--Priority--</option>
+              <option value="3"> High </option>
+              <option value="2"> Med </option>
+              <option value="1"> Low </option>
+            </select>
+            <label htmlFor="created">Created By: </label>
+            <input
+              type="text"
+              name="created"
+              id="created"
+              value={this.createInput}
+              onChange={this.handleInputChange}
+            />
+            <label htmlFor="assign">Assign To: </label>
+            <select
+              name="assign"
+              id="assign"
+              value={this.state.assignedInput}
+              onChange={this.handleInputChange}
+            >
+              <option value="0">--Assign task to user--</option>
+              {this.props.users.map(card => {
+                return (
+                  <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
+                )
+              })}
+            </select>
+            <NewCardButton label="Add Card" clickHandler={this.addCard} />
+          </div>
+        </div>
       </div>
     )
   }

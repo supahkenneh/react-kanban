@@ -13,7 +13,6 @@ class EditCardForm extends Component {
       priorityInput: '',
       createdInput: '',
       assignedInput: '',
-      statusInput: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.editSelectedCard = this.editSelectedCard.bind(this);
@@ -63,8 +62,12 @@ class EditCardForm extends Component {
       priorityInput: '',
       createdInput: '',
       assignedInput: '',
-      statusInput: '',
     })
+    document.getElementById('priority').selectedIndex = 0;
+    document.getElementById('assign').selectedIndex = 0;
+
+    const toggle = document.getElementsByClassName('EditCardForm_container')[0];
+    toggle.className = 'switch'
   }
 
   render() {

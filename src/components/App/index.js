@@ -32,7 +32,7 @@ class App extends Component {
         <Header />
         <Body cards={this.props.cards} />
         <button id="home_add_button" onClick={this.togglePosting.bind(this)}>+ New Task</button>
-        { this.state.posting && <NewCardForm users={this.props.users} />}
+        { this.state.posting && <NewCardForm users={this.props.users} toggle={this.togglePosting}/>}
       </div>
     );
   }
