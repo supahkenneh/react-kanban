@@ -9,7 +9,7 @@ class TaskCard extends React.Component {
     super()
 
     this.state = {
-      editing: false
+      editing: false,
     }
   }
 
@@ -17,12 +17,12 @@ class TaskCard extends React.Component {
     this.setState({
       editing: !this.state.editing
     });
-
   }
+  
+
 
   render() {
     // console.log('props', this.props);
-
     const {
       id,
       title,
@@ -70,12 +70,6 @@ const mapDispatchToProps = dispatch => {
     deleteCard: card => {
       dispatch(deleteCard(card));
     },
-    // editingCard: card => {
-    //   dispatch(editingCard(card));
-    // },
-    // editCard: card => {
-    //   dispatch(editCard(card));
-    // }
   }
 }
 

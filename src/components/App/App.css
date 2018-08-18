@@ -70,7 +70,10 @@ body {
   color: black;
 }
 
-#add_button {
+#home_add_button {
+  position: fixed;
+  top: 11px;
+  right: 3px; 
   height: 40px;
   width: 125px;
   margin-right: 5px;
@@ -82,7 +85,7 @@ body {
   border-radius: 3px;
 }
 
-#add_button:hover {
+#home_add_button:hover {
   background-color: white;
   color: black;
 }

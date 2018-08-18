@@ -11,6 +11,7 @@ class App extends Component {
     super(props)
     this.state = {
       cards: [],
+      posting: false,
     }
   }
 
@@ -19,12 +20,19 @@ class App extends Component {
     this.props.getUsers();
   };
 
+  togglePosting(e) {
+    this.setState({
+      posting: !this.state.posting
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <Body cards={this.props.cards} />
-        <NewCardForm users={this.props.users} />
+        <button id="home_add_button" onClick={this.togglePosting.bind(this)}>+ New Task</button>
+        { this.state.posting && <NewCardForm users={this.props.users} />}
       </div>
     );
   }

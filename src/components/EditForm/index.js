@@ -144,7 +144,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     editCard: card => {
-      console.log('card', card);
       dispatch(editCard(card))
     }
   }
