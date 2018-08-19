@@ -62,11 +62,11 @@ class NewCardForm extends Component {
     })
     document.getElementById('priority').selectedIndex = 0;
     document.getElementById('assign').selectedIndex = 0;
-    document.getElementById('simple_modal').style.display = 'none';
+    document.getElementById('simple_modal').className = 'none';
   }
 
   closeModal() {
-    document.getElementById('simple_modal').style.display = 'none';
+    document.getElementById('simple_modal').className = 'none';
   }
 
   render() {
@@ -83,6 +83,7 @@ class NewCardForm extends Component {
               value={this.state.titleInput}
               onChange={this.handleInputChange}
             />
+            <br/>
             <label htmlFor="body">Body: </label>
             <input
               type="text"
@@ -91,6 +92,7 @@ class NewCardForm extends Component {
               value={this.state.bodyInput}
               onChange={this.handleInputChange}
             />
+            <br/>
             <label htmlFor="priority">Priority: </label>
             <select name="priority" id="priority"
               onChange={this.handleInputChange}
@@ -100,14 +102,29 @@ class NewCardForm extends Component {
               <option value="2"> Med </option>
               <option value="1"> Low </option>
             </select>
+            <br/>
             <label htmlFor="created">Created By: </label>
-            <input
+            {/* <input
               type="text"
               name="created"
               id="created"
               value={this.createInput}
               onChange={this.handleInputChange}
-            />
+            /> */}
+            <select 
+              name="created" 
+              id="created"
+              value={this.state.createInput}
+              onChange={this.handleInputChange}
+              >
+              <option value="0">--Task created by--</option>
+              {this.props.users.map(user => {
+                return (
+                  <option key={user.id} value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
+                )
+              })}
+              </select>
+            <br/>
             <label htmlFor="assign">Assign To: </label>
             <select
               name="assign"
@@ -116,13 +133,15 @@ class NewCardForm extends Component {
               onChange={this.handleInputChange}
             >
               <option value="0">--Assign task to user--</option>
-              {this.props.users.map(card => {
+              {this.props.users.map(user => {
                 return (
-                  <option key={card.id} value={card.id}>{`${card.first_name} ${card.last_name}`}</option>
+                  <option key={user.id} value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
                 )
               })}
             </select>
+            <br/>
             <NewCardButton label="Add Card" clickHandler={this.addCard} />
+            <button id="cancel_button" onClick={this.closeModal} >Cancel</button>
           </div>
         </div>
       </div>

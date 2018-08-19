@@ -66,8 +66,8 @@ class EditCardForm extends Component {
     document.getElementById('priority').selectedIndex = 0;
     document.getElementById('assign').selectedIndex = 0;
 
-    const toggle = document.getElementsByClassName('EditCardForm_container')[0];
-    toggle.className = 'switch'
+    const editForm = document.getElementsByClassName('EditCardForm_container')[0];
+    editForm.className = 'none';
   }
 
   render() {
