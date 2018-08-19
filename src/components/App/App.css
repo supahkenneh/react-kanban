@@ -113,7 +113,7 @@ body {
   margin-right: auto;
   padding: 20px;
   width: 28%;
-  height: 15%;
+  height: 16%;
   box-shadow: 1px 1px 2px black;
 }
 
@@ -137,6 +137,7 @@ body {
   color: white;
   font-size: 12px;
   border-radius: 3px;
+  margin-bottom: 5px;
 }
 
 #cancel_button {
@@ -151,8 +152,33 @@ body {
 
 #title, #body, #priority, #created, #assign {
   margin: 3px;
+  padding: 3px;
 } 
 
 .none {
   display: none;
+}
+
+.EditCardForm_container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#edit_submit_button {
+  margin-top: 10px;
+  height: 25px;
+  width: 60px;
+  font-size: 12px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  background-color: #5A6166;
+  color: white;
+  border-style: solid 1px;
+  border-radius: 3px;
+}
+
+#edit_submit_button:hover {
+  background-color: white;
+  color: black;
 }

@@ -44,7 +44,7 @@ class EditCardForm extends Component {
   }
 
   editSelectedCard(event) {
-     
+
     const data = {}
     data.id = this.props.id
     data.title = this.state.titleInput;
@@ -109,13 +109,19 @@ class EditCardForm extends Component {
             <option value="3">Done</option>
           </select>
           <label htmlFor="created">Created By: </label>
-          <input
-            type="text"
+          <select
             name="created"
             id="created"
-            value={this.createInput}
+            value={this.state.createInput}
             onChange={this.handleInputChange}
-          />
+          >
+            <option value="0">--Task created by--</option>
+            {this.props.users.map(user => {
+              return (
+                <option key={user.id} value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
+              )
+            })}
+          </select>
           <label htmlFor="assign">Assign To: </label>
           <select
             name="assign"
@@ -130,7 +136,7 @@ class EditCardForm extends Component {
               )
             })}
           </select>
-          <EditButton label="Edit Card" clickHandler={this.editSelectedCard}/>
+          <EditButton label="Edit Card" clickHandler={this.editSelectedCard} />
         </div>
       </div>
     )
