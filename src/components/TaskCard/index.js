@@ -33,12 +33,14 @@ class TaskCard extends React.Component {
     } = this.props;
 
     return (
-      <div className="card" style={colorfy(status)} id='card_id'>
-        <div>{title}</div>
-        <div>{body}</div>
-        <div>Priority: {priority}</div>
-        <div>Created by: {createdBy}</div>
-        <div>Assigned to: {assigned}</div>
+      <div className="card" style={colorfy(status, priority)} id='card_id'>
+        <div id="card_title">{title}</div>
+        <div id="card_body">{body}</div>
+        <div className="card_desc">Priority:
+          <span style={prioritize(priority)}> {priority}</span>
+        </div>
+        <div className="card_desc">Created by: {createdBy}</div>
+        <div className="card_desc">Assigned to: {assigned}</div>
 
         <button
           id="delete_button"
@@ -75,24 +77,32 @@ export default connect(mapStateToProps, mapDispatchToProps)(TaskCard);
 function colorfy(status) {
   switch (status) {
     case 1:
-      return {
-        backgroundColor: '#AFDEDC',
-        borderRadius: 2,
-        borderColor: '#708E8C'
-      }
+      return { borderLeft: '#0E7DB5 6px solid' }
     case 2:
-      return {
-        backgroundColor: '#8EDCE6',
-        borderRadius: 2,
-        borderColor: '#5B8C93'
-      }
+      return { borderLeft: '#F07527 6px solid' }
     case 3:
-      return {
-        backgroundColor: '#91A8A4',
-        borderRadius: 2,
-        borderColor: '#5D6B69'
-      }
+      return { borderLeft: '#2F9168 6px solid', color: '#5A6166' }
     default:
-      return { backgroundColor: '#F7F7F7' }
+      break;
+  }
+}
+
+function prioritize(priority) {
+  switch (priority) {
+    case 'high':
+      return {
+        color: '#FF9F1C',
+        fontSize: '16px',
+      }
+    case 'med':
+      return {
+        color: '#1A6DB2',
+        fontSize: '16px'
+      }
+    case 'low':
+      return {
+        color: '#3AB795',
+        fontSize: '16px'
+      }
   }
 }

@@ -23,10 +23,10 @@ function filterCards(props) {
     case 'In Progress':
       return props.cards.filter(card => card.status_id === 2)
     case 'Done':
-      return props.cards.filter(card => card.status_id === 3) 
+      return props.cards.filter(card => card.status_id === 3)
     default:
-      return props.cards;   
+      return props.cards;
   }
-}
+};
 
 export default Column;

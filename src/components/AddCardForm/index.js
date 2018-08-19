@@ -83,7 +83,7 @@ class NewCardForm extends Component {
               value={this.state.titleInput}
               onChange={this.handleInputChange}
             />
-            <br/>
+            <br />
             <label htmlFor="body">Body: </label>
             <input
               type="text"
@@ -92,7 +92,7 @@ class NewCardForm extends Component {
               value={this.state.bodyInput}
               onChange={this.handleInputChange}
             />
-            <br/>
+            <br />
             <label htmlFor="priority">Priority: </label>
             <select name="priority" id="priority"
               onChange={this.handleInputChange}
@@ -102,7 +102,7 @@ class NewCardForm extends Component {
               <option value="2"> Med </option>
               <option value="1"> Low </option>
             </select>
-            <br/>
+            <br />
             <label htmlFor="created">Created By: </label>
             {/* <input
               type="text"
@@ -111,20 +111,20 @@ class NewCardForm extends Component {
               value={this.createInput}
               onChange={this.handleInputChange}
             /> */}
-            <select 
-              name="created" 
+            <select
+              name="created"
               id="created"
               value={this.state.createInput}
               onChange={this.handleInputChange}
-              >
+            >
               <option value="0">--Task created by--</option>
               {this.props.users.map(user => {
                 return (
                   <option key={user.id} value={user.id}>{`${user.first_name} ${user.last_name}`}</option>
                 )
               })}
-              </select>
-            <br/>
+            </select>
+            <br />
             <label htmlFor="assign">Assign To: </label>
             <select
               name="assign"
@@ -139,7 +139,7 @@ class NewCardForm extends Component {
                 )
               })}
             </select>
-            <br/>
+            <br />
             <NewCardButton label="Add Card" clickHandler={this.addCard} />
             <button id="cancel_button" onClick={this.closeModal} >Cancel</button>
           </div>
