@@ -17,7 +17,6 @@ class NewCardForm extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.addCard = this.addCard.bind(this);
-    console.log('this.props', this.props);
   }
 
   //records data from input fields
@@ -63,14 +62,18 @@ class NewCardForm extends Component {
     })
     document.getElementById('priority').selectedIndex = 0;
     document.getElementById('assign').selectedIndex = 0;
+    document.getElementById('simple_modal').style.display = 'none';
+  }
+
+  closeModal() {
+    document.getElementById('simple_modal').style.display = 'none';
   }
 
   render() {
-
     return (
       <div className="modal" id="simple_modal">
         <div className="modal_content">
-          <div className="close">x</div>
+          <div className="close" onClick={this.closeModal}>x</div>
           <div className="form-container">
             <label htmlFor="title">Title: </label>
             <input

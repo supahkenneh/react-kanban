@@ -95,7 +95,7 @@ body {
   color: black;
 }
 
-.modal {
+#simple_modal {
   position: fixed;
   z-index: 1;
   left: 0;
