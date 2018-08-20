@@ -39,7 +39,6 @@ class App extends Component {
 };
 
 const mapStateToProps = state => {
-  // console.log('state', state);
   return {
     cards: state.cardsList,
     users: state.usersList,
@@ -58,5 +57,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-//button for changing statuses and edit

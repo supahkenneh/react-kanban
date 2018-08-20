@@ -2,7 +2,6 @@ import React from 'react';
 import Column from '../Column';
 
 const Body = props => {
-  // console.log('Body ', props);
   return (
     <div className="content_body">
       <Column label="In Queue" cards={props.cards}/>

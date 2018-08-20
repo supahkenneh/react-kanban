@@ -44,7 +44,6 @@ class EditCardForm extends Component {
   }
 
   editSelectedCard(event) {
-
     const data = {}
     data.id = this.props.id
     data.title = this.state.titleInput;

@@ -13,7 +13,6 @@ export const loadCards = () => {
   return dispatch => {
     return axios.get(PATH)
       .then(response => {
-        // console.log(response);
         dispatch({
           type: LOAD_CARDS,
           cards: response.data

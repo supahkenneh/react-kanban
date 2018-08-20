@@ -2,7 +2,6 @@ import React from 'react';
 import CardList from '../CardList';
 
 const Column = props => {
-  // console.log('Column ', props);
   return (
     <div className="column">
       <div className="column_header">
@@ -16,7 +15,6 @@ const Column = props => {
 };
 
 function filterCards(props) {
-  // console.log(props);
   switch (props.label) {
     case 'In Queue':
       return props.cards.filter(card => card.status_id === 1)

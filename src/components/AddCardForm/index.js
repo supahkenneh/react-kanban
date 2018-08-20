@@ -19,7 +19,6 @@ class NewCardForm extends Component {
     this.addCard = this.addCard.bind(this);
   }
 
-  //records data from input fields
   handleInputChange(event) {
     switch (event.target.id) {
       case 'title':
@@ -42,7 +41,6 @@ class NewCardForm extends Component {
     }
   }
 
-  //actually adds the card into system
   addCard(e) {
     const data = {};
     data.title = this.state.titleInput;
@@ -104,13 +102,6 @@ class NewCardForm extends Component {
             </select>
             <br />
             <label htmlFor="created">Created By: </label>
-            {/* <input
-              type="text"
-              name="created"
-              id="created"
-              value={this.createInput}
-              onChange={this.handleInputChange}
-            /> */}
             <select
               name="created"
               id="created"
